@@ -6,6 +6,7 @@ const helmet = require('helmet');
 const morgan = require('morgan');
 const route = require('./routes/users')
 const auth = require('./routes/auth')
+const post = require('./routes/post')
 
 dotenv.config();
 
@@ -29,13 +30,14 @@ app.use(morgan("common"));
 
 app.use("/api/user", route)
 app.use("/api/auth", auth)
+app.use("/api/posts", post)
 
-app.get("/", (req,res)=>{
-    res.send("welcome to homepage")
-})
-app.get("/users", (req,res)=>{
-    res.send("welcome to userpage")
-})
+// app.get("/", (req,res)=>{
+//     res.send("welcome to homepage")
+// })
+// app.get("/users", (req,res)=>{
+//     res.send("welcome to userpage")
+// })
 
 
 app.listen(8800, () => { 
